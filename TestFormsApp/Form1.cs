@@ -45,9 +45,17 @@ namespace TestFormsApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string gerry;
-            gerry = MapInput.Text;
-            var formz = new Form2(gerry);
+	        var info = new MatchInfo
+		                   {
+			                   MatchDate = MatchDateInput.Value,
+			                   DateConfirmed = DateCheck.Checked,
+			                   MapName = MapInput.Text,
+			                   KnowTeam = TeamCheck.Checked,
+			                   TeamName = NameText.Text,
+			                   TeamTag = NameTag.Text
+		                   };
+			
+            var formz = new Form2(info);
             formz.Show();
         }
     }
