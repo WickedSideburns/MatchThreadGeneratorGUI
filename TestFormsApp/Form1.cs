@@ -54,6 +54,7 @@ namespace TestFormsApp
 			                   TeamName = NameText.Text,
 			                   TeamTag = NameTag.Text
 		                   };
+            
 			
             var formz = new Form2(info);
             formz.Show();
