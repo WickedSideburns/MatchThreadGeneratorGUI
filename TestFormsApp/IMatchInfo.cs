@@ -10,5 +10,6 @@
 		bool DateConfirmed { get; set; }
 		string TeamTag { get; set; }
 		DateTime MatchDate { get; set; }
+        string MapType { get;  }
 	}
 }
