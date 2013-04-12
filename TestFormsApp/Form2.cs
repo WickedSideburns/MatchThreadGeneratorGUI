@@ -11,22 +11,18 @@ namespace TestFormsApp
 {
     public partial class Form2 : Form
     {
-        public Form2(string s)
+	    private readonly IMatchInfo info;
+
+	    public Form2(IMatchInfo info)
         {
-            
-            InitializeComponent();
-            james = s;
+	        this.info = info;
+
+	        InitializeComponent();
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            this.label1.Text = james;
+	        this.tbInfo.Text = this.info.ToString();
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-        private string james;
     }
 }
