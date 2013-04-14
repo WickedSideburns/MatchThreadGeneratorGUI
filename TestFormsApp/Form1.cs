@@ -35,6 +35,9 @@ namespace TestFormsApp
         {
             this.NameTag.Enabled = false;
             this.NameText.Enabled = false;
+            this.radioHome.Checked = true;
+            this.radioHome.Enabled = false;
+            this.radioVisiting.Enabled = false;
         }
 
         private void checkBox1_CheckStateChanged(object sender, EventArgs e)
@@ -52,12 +55,30 @@ namespace TestFormsApp
 			                   MapName = MapInput.Text,
 			                   KnowTeam = TeamCheck.Checked,
 			                   TeamName = NameText.Text,
+                               Home = true,
 			                   TeamTag = NameTag.Text
 		                   };
+
+            if (info.DateConfirmed == true)
+                info.Home = this.radioHome.Checked;
             
 			
             var formz = new Form2(info);
             formz.Show();
+        }
+
+        private void DateCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.radioVisiting.Enabled == false)
+            {
+                this.radioVisiting.Enabled = true;
+                this.radioHome.Enabled = true;
+            }
+            else
+            {
+                this.radioVisiting.Enabled = false;
+                this.radioHome.Enabled = false;
+            }
         }
     }
 }

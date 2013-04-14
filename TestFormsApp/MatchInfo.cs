@@ -27,6 +27,10 @@
             {
                 _mapname = value;
                 //The following changes the map type depending on the map name given.
+
+                if (MapName == null || MapName == "")
+                    return;
+
                 if (MapName.Substring(0, 3).ToLower() == "pl_")
                     MapType = "pl_";
                 else if (MapName.Substring(0, 5).ToLower() == "koth_")
@@ -43,6 +47,8 @@
 		public bool KnowTeam { get; set; }
 
 		public bool DateConfirmed { get; set; }
+
+        public bool Home { get; set; }
 
 		public string TeamTag { get; set; }
 
@@ -61,6 +67,19 @@
 			sb.Append(Environment.NewLine);
 			sb.Append(string.Format("MapName name: {0}", this.MapName));
 
+            if (this.DateConfirmed == true)
+            {
+                sb.Append(Environment.NewLine);
+                sb.Append("We will be the ");
+                if (this.Home == true)
+                    sb.Append("Home ");
+                else
+                    sb.Append("visiting ");
+                sb.Append("team.");
+            }
+
+            if (this.MapType == null || this.MapType == "")
+                return sb.ToString();
             if (this.MapType == "pl_")
             {
                 sb.Append(Environment.NewLine);
