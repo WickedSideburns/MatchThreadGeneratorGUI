@@ -28,16 +28,16 @@
                 _mapname = value;
                 //The following changes the map type depending on the map name given.
 
-                if (MapName == null || MapName == "")
+                if (string.IsNullOrEmpty(MapName))
                     return;
 
-                if (MapName.Substring(0, 3).ToLower() == "pl_")
+                if (MapName.ToLower().Contains("pl_"))
                     MapType = "pl_";
-                else if (MapName.Substring(0, 5).ToLower() == "koth_")
+                else if (MapName.ToLower().Contains("koth_"))
                     MapType = "koth_";
-                else if (MapName.Substring(0, 3).ToLower() == "cp_")
+                else if (MapName.ToLower().Contains("cp_"))
                     MapType = "cp_"; //This does not take into factor a 5cp . That will have to be worked on.
-                else if (MapName.Substring(0, 4).ToLower() == "ctf_")
+                else if (MapName.ToLower().Contains("ctf_"))
                     MapType = "ctf_";
                 else
                     MapType = "uk_";//Means unknown. Potential for handling dom_ or plr_ or other type variants
@@ -53,7 +53,7 @@
 		public string TeamTag { get; set; }
 
 		public DateTime MatchDate { get; set; }
-
+		
         public string MapType
         {
             get;
@@ -67,11 +67,11 @@
 			sb.Append(Environment.NewLine);
 			sb.Append(string.Format("MapName name: {0}", this.MapName));
 
-            if (this.DateConfirmed == true)
+            if (this.DateConfirmed)
             {
                 sb.Append(Environment.NewLine);
                 sb.Append("We will be the ");
-                if (this.Home == true)
+                if (this.Home)
                     sb.Append("Home ");
                 else
                     sb.Append("visiting ");
@@ -80,7 +80,7 @@
 
             if (this.MapType == null || this.MapType == "")
                 return sb.ToString();
-            if (this.MapType == "pl_")
+            if (string.IsNullOrEmpty("pl_"))
             {
                 sb.Append(Environment.NewLine);
                 sb.Append("The map will be a payload map.");
