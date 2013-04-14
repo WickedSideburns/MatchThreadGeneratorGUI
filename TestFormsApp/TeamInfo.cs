@@ -2,53 +2,25 @@
 {
     public class TeamInfo : ITeamInfo
     {
-        public string TeamName
-        {
-            get
-            {
-                return TeamName;
-            }
-            set
-            {
-                TeamName = value;
-            }
-        }
+        public string TeamName { get; set; }
 
-        public string TeamTag
-        {
-            get
-            {
-                return TeamTag;
-            }
-            set
-            {
-                TeamTag = value;
-            }
-        }
 
-        public string Leader
-        {
-            get
-            {
-                return Leader;
-            }
-            set
-            {
-                Leader = value;
-            }
-        }
+        public string TeamTag { get; set; }
+
+        public string Leader { get; set; }
 
         TeamInfo(string Ne, string Tg)
         {
-            TeamName = Ne;
-            TeamTag = Tg;
-            Leader = null;
+            this.TeamName = Ne;
+            this.TeamTag = Tg;
+            this.Leader = null;
         }
-        TeamInfo()
-        {
-            TeamName = "";
-            TeamTag = "";
-            Leader = null;
+
+		TeamInfo()
+		{
+			this.TeamName = string.Empty;
+            this.TeamTag = string.Empty;
+            this.Leader = null;
         }
     }
 }
