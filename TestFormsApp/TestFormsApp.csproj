@@ -59,6 +59,12 @@
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
     <Compile Include="IMatchInfo.cs" />
+    <Compile Include="InputError.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputError.Designer.cs">
+      <DependentUpon>InputError.cs</DependentUpon>
+    </Compile>
     <Compile Include="ITeamInfo.cs" />
     <Compile Include="MatchInfo.cs" />
     <Compile Include="Program.cs" />
@@ -69,6 +75,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputError.resx">
+      <DependentUpon>InputError.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -48,6 +48,12 @@ namespace TestFormsApp
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (MapInput.Text == "")
+            {
+                var ErForm = new InputError("Please input a map.");
+                ErForm.Show();
+                return;
+            }
 	        var info = new MatchInfo
 		                   {
 			                   MatchDate = MatchDateInput.Value,
