@@ -41,9 +41,6 @@
             this.DateCheck = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.HomeRadio = new System.Windows.Forms.RadioButton();
-            this.VisitingRadio = new System.Windows.Forms.RadioButton();
-            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -64,7 +61,7 @@
             // 
             // MapInput
             // 
-            this.MapInput.Location = new System.Drawing.Point(234, 121);
+            this.MapInput.Location = new System.Drawing.Point(234, 76);
             this.MapInput.Name = "MapInput";
             this.MapInput.Size = new System.Drawing.Size(168, 20);
             this.MapInput.TabIndex = 2;
@@ -72,7 +69,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(28, 124);
+            this.label2.Location = new System.Drawing.Point(28, 79);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(106, 13);
             this.label2.TabIndex = 3;
@@ -81,7 +78,7 @@
             // TeamCheck
             // 
             this.TeamCheck.AutoSize = true;
-            this.TeamCheck.Location = new System.Drawing.Point(234, 164);
+            this.TeamCheck.Location = new System.Drawing.Point(234, 119);
             this.TeamCheck.Name = "TeamCheck";
             this.TeamCheck.Size = new System.Drawing.Size(44, 17);
             this.TeamCheck.TabIndex = 4;
@@ -92,7 +89,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(28, 165);
+            this.label3.Location = new System.Drawing.Point(28, 120);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(166, 13);
             this.label3.TabIndex = 5;
@@ -100,7 +97,7 @@
             // 
             // NameText
             // 
-            this.NameText.Location = new System.Drawing.Point(234, 204);
+            this.NameText.Location = new System.Drawing.Point(234, 159);
             this.NameText.Name = "NameText";
             this.NameText.Size = new System.Drawing.Size(100, 20);
             this.NameText.TabIndex = 6;
@@ -108,7 +105,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(28, 211);
+            this.label4.Location = new System.Drawing.Point(28, 166);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 13);
             this.label4.TabIndex = 7;
@@ -116,7 +113,7 @@
             // 
             // NameTag
             // 
-            this.NameTag.Location = new System.Drawing.Point(234, 247);
+            this.NameTag.Location = new System.Drawing.Point(234, 202);
             this.NameTag.Name = "NameTag";
             this.NameTag.Size = new System.Drawing.Size(100, 20);
             this.NameTag.TabIndex = 8;
@@ -124,7 +121,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(28, 254);
+            this.label5.Location = new System.Drawing.Point(28, 209);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 13);
             this.label5.TabIndex = 9;
@@ -139,7 +136,6 @@
             this.DateCheck.TabIndex = 10;
             this.DateCheck.Text = "Yes";
             this.DateCheck.UseVisualStyleBackColor = true;
-            this.DateCheck.CheckedChanged += new System.EventHandler(this.DateCheck_CheckedChanged);
             // 
             // label6
             // 
@@ -160,45 +156,11 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // HomeRadio
-            // 
-            this.HomeRadio.AutoSize = true;
-            this.HomeRadio.Location = new System.Drawing.Point(234, 76);
-            this.HomeRadio.Name = "HomeRadio";
-            this.HomeRadio.Size = new System.Drawing.Size(53, 17);
-            this.HomeRadio.TabIndex = 13;
-            this.HomeRadio.TabStop = true;
-            this.HomeRadio.Text = "Home";
-            this.HomeRadio.UseVisualStyleBackColor = true;
-            // 
-            // VisitingRadio
-            // 
-            this.VisitingRadio.AutoSize = true;
-            this.VisitingRadio.Location = new System.Drawing.Point(326, 76);
-            this.VisitingRadio.Name = "VisitingRadio";
-            this.VisitingRadio.Size = new System.Drawing.Size(58, 17);
-            this.VisitingRadio.TabIndex = 14;
-            this.VisitingRadio.TabStop = true;
-            this.VisitingRadio.Text = "Visiting";
-            this.VisitingRadio.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(28, 76);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(75, 13);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "Your Team is: ";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(530, 332);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.VisitingRadio);
-            this.Controls.Add(this.HomeRadio);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.DateCheck);
@@ -235,9 +197,6 @@
         private System.Windows.Forms.CheckBox DateCheck;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RadioButton HomeRadio;
-        private System.Windows.Forms.RadioButton VisitingRadio;
-        private System.Windows.Forms.Label label7;
     }
 }
 
