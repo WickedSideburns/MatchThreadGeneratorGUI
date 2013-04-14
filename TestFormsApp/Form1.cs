@@ -50,17 +50,16 @@ namespace TestFormsApp
         {
             if (MapInput.Text == "")
             {
-                var ErForm = new InputError("Please input a map.");
-                ErForm.Show();
+	            MessageBox.Show("Please enter a map!");
                 return;
             }
 	        var info = new MatchInfo
 		                   {
-			                   MatchDate = MatchDateInput.Value,
-			                   DateConfirmed = DateCheck.Checked,
-			                   MapName = MapInput.Text,
-			                   KnowTeam = TeamCheck.Checked,
-			                   TeamName = NameText.Text,
+			                   MatchDate = this.MatchDateInput.Value,
+			                   DateConfirmed = this.DateCheck.Checked,
+			                   MapName = this.MapInput.Text,
+			                   KnowTeam = this.TeamCheck.Checked,
+			                   TeamName = this.NameText.Text,
                                Home = true,
 			                   TeamTag = NameTag.Text
 		                   };
@@ -75,7 +74,7 @@ namespace TestFormsApp
 
         private void DateCheck_CheckedChanged(object sender, EventArgs e)
         {
-            if (this.radioVisiting.Enabled == false)
+			if (this.radioVisiting.Enabled == false)
             {
                 this.radioVisiting.Enabled = true;
                 this.radioHome.Enabled = true;
