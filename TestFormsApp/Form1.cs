@@ -70,9 +70,9 @@ namespace TestFormsApp
 			                   DateConfirmed = this.DateCheck.Checked,
 			                   MapName = this.MapInput.Text,
 			                   KnowTeam = this.TeamCheck.Checked,
-			                   TeamName = this.NameText.Text,
-                               Home = true,
-			                   TeamTag = NameTag.Text
+                               Opponent = new TeamInfo(this.NameText.Text, this.NameTag.Text),
+                               
+                               Home = true
 		                   };
 
             if (info.KnowTeam)

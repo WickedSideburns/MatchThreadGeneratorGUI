@@ -22,7 +22,7 @@ namespace TestFormsApp
 
         private void Form2_Load(object sender, EventArgs e)
         {
-	        this.tbInfo.Text = this.info.ToString();
+            this.tbInfo.Text = this.info.ToRedditMatchThread();
         }
     }
 }

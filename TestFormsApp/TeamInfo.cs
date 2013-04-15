@@ -9,14 +9,14 @@
 
         public string Leader { get; set; }
 
-        TeamInfo(string Ne, string Tg)
+        public TeamInfo(string Ne, string Tg)
         {
             this.TeamName = Ne;
             this.TeamTag = Tg;
             this.Leader = null;
         }
 
-		TeamInfo()
+		public TeamInfo()
 		{
 			this.TeamName = string.Empty;
             this.TeamTag = string.Empty;
