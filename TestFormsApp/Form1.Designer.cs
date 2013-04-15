@@ -64,7 +64,7 @@
             // 
             // MapInput
             // 
-            this.MapInput.Location = new System.Drawing.Point(234, 109);
+            this.MapInput.Location = new System.Drawing.Point(234, 83);
             this.MapInput.Name = "MapInput";
             this.MapInput.Size = new System.Drawing.Size(168, 20);
             this.MapInput.TabIndex = 2;
@@ -72,7 +72,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(28, 112);
+            this.label2.Location = new System.Drawing.Point(28, 86);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(106, 13);
             this.label2.TabIndex = 3;
@@ -81,7 +81,7 @@
             // TeamCheck
             // 
             this.TeamCheck.AutoSize = true;
-            this.TeamCheck.Location = new System.Drawing.Point(234, 152);
+            this.TeamCheck.Location = new System.Drawing.Point(234, 126);
             this.TeamCheck.Name = "TeamCheck";
             this.TeamCheck.Size = new System.Drawing.Size(44, 17);
             this.TeamCheck.TabIndex = 4;
@@ -92,7 +92,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(28, 153);
+            this.label3.Location = new System.Drawing.Point(28, 127);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(166, 13);
             this.label3.TabIndex = 5;
@@ -100,7 +100,7 @@
             // 
             // NameText
             // 
-            this.NameText.Location = new System.Drawing.Point(234, 192);
+            this.NameText.Location = new System.Drawing.Point(234, 166);
             this.NameText.Name = "NameText";
             this.NameText.Size = new System.Drawing.Size(100, 20);
             this.NameText.TabIndex = 6;
@@ -108,7 +108,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(28, 199);
+            this.label4.Location = new System.Drawing.Point(28, 173);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 13);
             this.label4.TabIndex = 7;
@@ -116,7 +116,7 @@
             // 
             // NameTag
             // 
-            this.NameTag.Location = new System.Drawing.Point(234, 235);
+            this.NameTag.Location = new System.Drawing.Point(234, 209);
             this.NameTag.Name = "NameTag";
             this.NameTag.Size = new System.Drawing.Size(100, 20);
             this.NameTag.TabIndex = 8;
@@ -124,7 +124,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(28, 242);
+            this.label5.Location = new System.Drawing.Point(28, 216);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 13);
             this.label5.TabIndex = 9;
@@ -152,7 +152,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(326, 270);
+            this.button1.Location = new System.Drawing.Point(326, 297);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(108, 23);
             this.button1.TabIndex = 12;
@@ -163,7 +163,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(28, 82);
+            this.label7.Location = new System.Drawing.Point(28, 249);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(71, 13);
             this.label7.TabIndex = 13;
@@ -172,7 +172,7 @@
             // radioHome
             // 
             this.radioHome.AutoSize = true;
-            this.radioHome.Location = new System.Drawing.Point(234, 77);
+            this.radioHome.Location = new System.Drawing.Point(234, 245);
             this.radioHome.Name = "radioHome";
             this.radioHome.Size = new System.Drawing.Size(53, 17);
             this.radioHome.TabIndex = 14;
@@ -183,7 +183,7 @@
             // radioVisiting
             // 
             this.radioVisiting.AutoSize = true;
-            this.radioVisiting.Location = new System.Drawing.Point(349, 77);
+            this.radioVisiting.Location = new System.Drawing.Point(326, 245);
             this.radioVisiting.Name = "radioVisiting";
             this.radioVisiting.Size = new System.Drawing.Size(58, 17);
             this.radioVisiting.TabIndex = 15;

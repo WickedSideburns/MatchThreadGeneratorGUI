@@ -29,6 +29,17 @@ namespace TestFormsApp
                 this.NameText.Enabled = false;
             }
 
+            if (this.radioVisiting.Enabled == false)
+            {
+                this.radioVisiting.Enabled = true;
+                this.radioHome.Enabled = true;
+            }
+            else
+            {
+                this.radioVisiting.Enabled = false;
+                this.radioHome.Enabled = false;
+            }
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -64,7 +75,7 @@ namespace TestFormsApp
 			                   TeamTag = NameTag.Text
 		                   };
 
-            if (info.DateConfirmed == true)
+            if (info.KnowTeam)
                 info.Home = this.radioHome.Checked;
             
 			
@@ -74,16 +85,7 @@ namespace TestFormsApp
 
         private void DateCheck_CheckedChanged(object sender, EventArgs e)
         {
-			if (this.radioVisiting.Enabled == false)
-            {
-                this.radioVisiting.Enabled = true;
-                this.radioHome.Enabled = true;
-            }
-            else
-            {
-                this.radioVisiting.Enabled = false;
-                this.radioHome.Enabled = false;
-            }
+			
         }
     }
 }
