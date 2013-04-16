@@ -12,5 +12,6 @@
         DateTime MatchDate { get; set; }
         string MapType { get; }
         string ToRedditMatchThread();
+        void Set5CP(bool b);
     }
 }

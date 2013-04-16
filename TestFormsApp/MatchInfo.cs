@@ -205,5 +205,16 @@
 
             return result.ToString();
         }
+
+        public void Set5CP(bool b)
+        {
+            if (this.MapType != "cp_" && this.MapType != "5cp_")
+                return;
+
+            if (b)
+                this.MapType = "5cp_";
+            else
+                this.MapType = "cp_";
+        }
     }
 }

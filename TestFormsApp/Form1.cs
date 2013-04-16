@@ -49,6 +49,7 @@ namespace TestFormsApp
             this.radioHome.Checked = true;
             this.radioHome.Enabled = false;
             this.radioVisiting.Enabled = false;
+            this.CPCheck.Enabled = false;
         }
 
         private void checkBox1_CheckStateChanged(object sender, EventArgs e)
@@ -77,6 +78,9 @@ namespace TestFormsApp
 
             if (info.KnowTeam)
                 info.Home = this.radioHome.Checked;
+
+            if (this.CPCheck.Enabled)
+                info.Set5CP(CPCheck.Checked);
             
 			
             var formz = new Form2(info);
@@ -86,6 +90,33 @@ namespace TestFormsApp
         private void DateCheck_CheckedChanged(object sender, EventArgs e)
         {
 			
+        }
+
+        private void MapInput_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MapInput_Enter(object sender, EventArgs e)
+        {
+            string happy = this.MapInput.Text;
+            if (happy.Length < 4)
+                return;
+            if (happy.Substring(0, 3) == "cp_")
+                this.CPCheck.Enabled = true;
+            else
+                this.CPCheck.Enabled = false;
+        }
+
+        private void MapInput_TextChanged_1(object sender, EventArgs e)
+        {
+            string happy = MapInput.Text;
+            if (happy.Length < 4)
+                return;
+            if (happy.Substring(0, 3) == "cp_")
+                this.CPCheck.Enabled = true;
+            else
+                this.CPCheck.Enabled = false;
         }
     }
 }

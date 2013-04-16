@@ -44,6 +44,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.radioHome = new System.Windows.Forms.RadioButton();
             this.radioVisiting = new System.Windows.Forms.RadioButton();
+            this.CPCheck = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -68,6 +69,8 @@
             this.MapInput.Name = "MapInput";
             this.MapInput.Size = new System.Drawing.Size(168, 20);
             this.MapInput.TabIndex = 2;
+            this.MapInput.TextChanged += new System.EventHandler(this.MapInput_TextChanged_1);
+            this.MapInput.Enter += new System.EventHandler(this.MapInput_Enter);
             // 
             // label2
             // 
@@ -191,11 +194,22 @@
             this.radioVisiting.Text = "Visiting";
             this.radioVisiting.UseVisualStyleBackColor = true;
             // 
+            // CPCheck
+            // 
+            this.CPCheck.AutoSize = true;
+            this.CPCheck.Location = new System.Drawing.Point(425, 85);
+            this.CPCheck.Name = "CPCheck";
+            this.CPCheck.Size = new System.Drawing.Size(80, 17);
+            this.CPCheck.TabIndex = 16;
+            this.CPCheck.Text = "Map is 5CP";
+            this.CPCheck.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(530, 332);
+            this.Controls.Add(this.CPCheck);
             this.Controls.Add(this.radioVisiting);
             this.Controls.Add(this.radioHome);
             this.Controls.Add(this.label7);
@@ -238,6 +252,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.RadioButton radioHome;
         private System.Windows.Forms.RadioButton radioVisiting;
+        private System.Windows.Forms.CheckBox CPCheck;
     }
 }
 
