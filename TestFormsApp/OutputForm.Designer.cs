@@ -1,6 +1,6 @@
 ﻿namespace TestFormsApp
 {
-    partial class Form2
+    partial class OutputForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,25 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-			this.tbInfo = new System.Windows.Forms.TextBox();
-			this.SuspendLayout();
-			// 
-			// tbInfo
-			// 
-			this.tbInfo.Location = new System.Drawing.Point(13, 13);
-			this.tbInfo.Multiline = true;
-			this.tbInfo.Name = "tbInfo";
-			this.tbInfo.Size = new System.Drawing.Size(259, 237);
-			this.tbInfo.TabIndex = 0;
-			// 
-			// Form2
-			// 
-			this.ClientSize = new System.Drawing.Size(284, 262);
-			this.Controls.Add(this.tbInfo);
-			this.Name = "Form2";
-			this.Load += new System.EventHandler(this.Form2_Load);
-			this.ResumeLayout(false);
-			this.PerformLayout();
+            this.tbInfo = new System.Windows.Forms.TextBox();
+            this.SuspendLayout();
+            // 
+            // tbInfo
+            // 
+            this.tbInfo.Location = new System.Drawing.Point(13, 13);
+            this.tbInfo.Multiline = true;
+            this.tbInfo.Name = "tbInfo";
+            this.tbInfo.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.tbInfo.Size = new System.Drawing.Size(341, 299);
+            this.tbInfo.TabIndex = 0;
+            // 
+            // OutputForm
+            // 
+            this.ClientSize = new System.Drawing.Size(366, 324);
+            this.Controls.Add(this.tbInfo);
+            this.Name = "OutputForm";
+            this.Load += new System.EventHandler(this.Form2Load);
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
