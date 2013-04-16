@@ -1,92 +1,287 @@
-﻿namespace TestFormsApp
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="MatchInfo.cs" company="WickedSidburns Wicked Company">
+//   WickedSideburns
+// </copyright>
+// <summary>
+//   The match info.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace TestFormsApp
 {
-	using System;
-	using System.Text;
+    using System;
+    using System.Text;
 
+	/// <summary>
+	/// The match info.
+	/// </summary>
 	public class MatchInfo : IMatchInfo
-	{
-		public string TeamName { get; set; }
+    {
+		/// <summary>
+		/// The mapname.
+		/// </summary>
+		private string mapname;
 
-        /*
-            Using the default set accessor for MapName was causing a recursive function.
-         * Stack overflow suggested using the default set (but, I wanted to alter stuff so that couldn't happen. I guess).
-         * It suggested as an alternative to create a private variable and just have the accessors mess with that.
-         * Feel free to change
-         * 
-         * --Wicked
-         */
-        private string _mapname;
+		/// <summary>
+		/// Initializes a new instance of the <see cref="MatchInfo"/> class.
+		/// </summary>
+		public MatchInfo()
+		{
+			this.Opponent = null;
+		}
 
-        public string MapName
+		/// <summary>
+		/// Gets or sets the map name.
+		/// </summary>
+		/// <remarks>
+		/// Using the default set accessor for MapName was causing a recursive function.
+		/// Stack overflow suggested using the default set (but, I wanted to alter stuff so that couldn't happen. I guess).
+		/// It suggested as an alternative to create a private variable and just have the accessors mess with that.
+		/// Feel free to change
+		/// --Wicked
+		/// </remarks>
+		public string MapName
         {
             get
             {
-                return _mapname;
+                return this.mapname;
             }
+
             set
             {
-                _mapname = value;
-                //The following changes the map type depending on the map name given.
+                this.mapname = value.ToLower();
+                
+				// The following changes the map type depending on the map name given.
+                if (string.IsNullOrEmpty(this.mapname))
+                {
+	                return;
+                }
 
-                if (string.IsNullOrEmpty(MapName))
-                    return;
-
-                if (MapName.ToLower().Contains("pl_"))
-                    MapType = "pl_";
-                else if (MapName.ToLower().Contains("koth_"))
-                    MapType = "koth_";
-                else if (MapName.ToLower().Contains("cp_"))
-                    MapType = "cp_"; //This does not take into factor a 5cp . That will have to be worked on.
-                else if (MapName.ToLower().Contains("ctf_"))
-                    MapType = "ctf_";
-                else
-                    MapType = "uk_";//Means unknown. Potential for handling dom_ or plr_ or other type variants
+                if (this.mapname.Contains("pl_"))
+                {
+	                this.MapType = "pl_";
+                }
+                else if (this.mapname.Contains("koth_"))
+                {
+	                this.MapType = "koth_";
+                }
+                else if (this.mapname.Contains("cp_"))
+				{
+					// This does not take into factor a 5cp . That will have to be worked on.
+					this.MapType = "cp_"; 
+				}
+                else if (this.mapname.Contains("ctf_"))
+                {
+	                this.MapType = "ctf_";
+                }
+				else
+                {
+	                // Means unknown. Potential for handling dom_ or plr_ or other type variants
+					this.MapType = "uk_";
+				}
             }
         }
 
-		public bool KnowTeam { get; set; }
+		/// <summary>
+		/// Gets or sets the opponent.
+		/// </summary>
+		public TeamInfo Opponent { get; set; }
 
-		public bool DateConfirmed { get; set; }
+	    /// <summary>
+	    /// Gets or sets a value indicating whether know team.
+	    /// </summary>
+	    public bool KnowTeam { get; set; }
 
-        public bool Home { get; set; }
+	    /// <summary>
+	    /// Gets or sets a value indicating whether date confirmed.
+	    /// </summary>
+	    public bool DateConfirmed { get; set; }
 
-		public string TeamTag { get; set; }
+	    /// <summary>
+	    /// Gets or sets a value indicating whether home.
+	    /// </summary>
+	    public bool Home { get; set; }
 
-		public DateTime MatchDate { get; set; }
-		
-        public string MapType
+	    /// <summary>
+	    /// Gets or sets the match date.
+	    /// </summary>
+	    public DateTime MatchDate { get; set; }
+
+	    /// <summary>
+	    /// Gets or sets the map type.
+	    /// </summary>
+	    public string MapType { get; protected set; }
+
+	    /// <summary>
+	    /// Generates a pastable string into a reddit post based on the entered information.
+	    /// </summary>
+	    /// <returns>
+	    /// The <see cref="string"/>.
+	    /// </returns>
+	    public string ToRedditMatchThread()
         {
-            get;
-            protected set;
-        }
+            const string LineSeg = "---------------------------";
+            string[] roles = { "Pyro", "Scout", "Soldier", "Demo", "Engineer", "Medic", "Sniper", "Spy", "Heavy", "Backup" };
 
-		public override string ToString()
-		{
-			var sb = new StringBuilder();
-			sb.Append(string.Format("Team name: {0} ({1})", this.TeamName, this.TeamTag));
-			sb.Append(Environment.NewLine);
-			sb.Append(string.Format("MapName name: {0}", this.MapName));
+            var result = new StringBuilder();
 
+		    result.Append("**MATCH INFO**");
+		    result.Append(Environment.NewLine);
+		    result.Append(Environment.NewLine);
+
+		    if (this.KnowTeam)
+		    {
+			    result.Append("Our opposing team is ");
+			    result.Append(this.Opponent.TeamName);
+			    result.Append("(");
+			    result.Append(this.Opponent.TeamTag);
+			    result.Append(").");
+
+			    if (!this.Home)
+			    {
+				    result.Append("We will be the visiting team.");
+			    }
+			    else
+			    {
+				    result.Append("We will be the home team.");
+			    }
+		    }
+		    else
+		    {
+			    result.Append("Our enemy team is unknown.");
+		    }
+
+            result.Append(Environment.NewLine);
+            result.Append(Environment.NewLine);
+
+            result.Append("The time and date is ");
+            result.Append(this.MatchDate.ToString("D"));
             if (this.DateConfirmed)
             {
-                sb.Append(Environment.NewLine);
-                sb.Append("We will be the ");
-                if (this.Home)
-                    sb.Append("Home ");
-                else
-                    sb.Append("visiting ");
-                sb.Append("team.");
+	            result.Append(" These date and times are the tentative for now.");
             }
 
-            if (this.MapType == null || this.MapType == "")
-                return sb.ToString();
-            if (string.IsNullOrEmpty("pl_"))
+		    result.Append(Environment.NewLine);
+		    result.Append(Environment.NewLine);
+
+		    result.Append(Environment.NewLine);
+		    result.Append(Environment.NewLine);
+		    result.Append(LineSeg);
+		    result.Append(Environment.NewLine);
+		    result.Append(Environment.NewLine);
+
+		    result.Append("**ROLL CALL**");
+		    result.Append(Environment.NewLine);
+		    result.Append(Environment.NewLine);
+		    
+			for (int i = 0; i < 10; i++)
+		    {
+                result.Append("* **");
+                result.Append(roles[i]);
+                result.Append("** - ");
+                result.Append(Environment.NewLine);
+            }
+
+		    result.Append(Environment.NewLine);
+		    result.Append(Environment.NewLine);
+		    result.Append(LineSeg);
+		    result.Append(Environment.NewLine);
+		    result.Append(Environment.NewLine);
+
+		    result.Append("* **Not Available** - ");
+            result.Append(Environment.NewLine);
+            result.Append("* **Groupie** - ");
+            result.Append(Environment.NewLine);
+
+		    result.Append(Environment.NewLine);
+		    result.Append(Environment.NewLine);
+		    result.Append(LineSeg);
+		    result.Append(Environment.NewLine);
+		    result.Append(Environment.NewLine);
+
+		    result.Append("**MAP RESOURCES AND INFO**");
+		    result.Append(Environment.NewLine);
+		    result.Append(Environment.NewLine);
+
+		    if (this.MapType == "5cp_")
             {
-                sb.Append(Environment.NewLine);
-                sb.Append("The map will be a payload map.");
+                result.Append("The map is ");
+                result.Append(this.MapName);
+                result.Append(", a 5cp map. The match will be determined with a best out of 5 with 30 minute halfs. This is standard for 5cp.");
+            }
+            else if (this.MapType == "cp_")
+            {
+                result.Append("The map is ");
+                result.Append(this.MapName);
+                result.Append(", an attack/defend map. The match will be played in an ABBA format, standard for attack/defend cp maps.");
+            }
+            else if (this.MapType == "ctf_")
+            {
+                result.Append("The map is ");
+                result.Append(this.MapName);
+                result.Append(", a capture the flag map. The first team to achieve 10 captures in two 20 minute rounds wins.");
+            }
+            else if (this.MapType == "koth_")
+            {
+                result.Append("The map is ");
+                result.Append(this.MapName);
+                result.Append(", a king of the hill map. The first team to win 4 rounds wins the match.");
+            }
+            else if (this.MapType == "pl_")
+            {
+	            result.Append("The map is ");
+	            result.Append(this.MapName);
+	            result.Append(", a payload map. The map will be played in stop-watch ABBA format, with one team attacking and the other team defending.");
+            }
+            else
+            {
+	            result.Append("The map is unknown at the moment.");
             }
 
-			return sb.ToString();
-		}
-	}
+		    result.Append(Environment.NewLine);
+		    result.Append(Environment.NewLine);
+
+		    result.Append(Environment.NewLine);
+		    result.Append(Environment.NewLine);
+
+		    result.Append("Check out the [Scrim Thread]() here!");
+
+		    result.Append(Environment.NewLine);
+		    result.Append(Environment.NewLine);
+		    result.Append(LineSeg);
+		    result.Append(Environment.NewLine);
+		    result.Append(Environment.NewLine);
+
+		    result.Append("**INSPIRATIONAL WORDS/BEATS**");
+
+		    result.Append(Environment.NewLine);
+		    result.Append(Environment.NewLine);
+
+		    return result.ToString();
+        }
+
+	    /// <summary>
+	    /// The set 5 cp.
+	    /// </summary>
+	    /// <param name="b">
+	    /// The b.  Wicked: what does 'b' do here?
+	    /// </param>
+	    public void Set5Cp(bool b)
+        {
+            if (this.MapType != "cp_" && this.MapType != "5cp_")
+            {
+				// not applicable.
+	            return;
+            }
+
+            if (b)
+            {
+	            this.MapType = "5cp_";
+            }
+            else
+            {
+	            this.MapType = "cp_";
+            }
+        }
+    }
 }
