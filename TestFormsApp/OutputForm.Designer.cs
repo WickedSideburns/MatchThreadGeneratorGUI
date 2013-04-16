@@ -1,6 +1,6 @@
 ﻿namespace TestFormsApp
 {
-    partial class Form2
+    partial class OutputForm
     {
         /// <summary>
         /// Required designer variable.
@@ -40,12 +40,12 @@
             this.tbInfo.Size = new System.Drawing.Size(341, 299);
             this.tbInfo.TabIndex = 0;
             // 
-            // Form2
+            // OutputForm
             // 
             this.ClientSize = new System.Drawing.Size(366, 324);
             this.Controls.Add(this.tbInfo);
-            this.Name = "Form2";
-            this.Load += new System.EventHandler(this.Form2_Load);
+            this.Name = "OutputForm";
+            this.Load += new System.EventHandler(this.Form2Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
